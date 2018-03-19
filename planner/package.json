@@ -1,8 +1,8 @@
 {
-  "name": "lesson-2-webpack",
+  "name": "test-task",
   "version": "0.0.1",
-  "description": "webpack testing project",
-  "main": "index.html",
+  "description": "some task",
+  "main": "src/app.js",
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
