@@ -30,12 +30,12 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
-              options: {sourceMap: true}
+              options: {sourceMap: false}
             },
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true,
+                sourceMap: false,
                 ident: 'postcss',
                 plugins: (loader) => [
                   require('autoprefixer')()
@@ -44,7 +44,7 @@ module.exports = {
             },
             {
               loader: 'sass-loader',
-              options: {sourceMap: true}
+              options: {sourceMap: false}
             }
           ],
           fallback: "style-loader",
