@@ -5,5 +5,5 @@ import ProductList from './layouts/product-list-layout';
 
 ReactDOM.render(
   <ProductList/>,
-  document.querySelector('main .product__area')
+  document.querySelector('.product__area')
 );
