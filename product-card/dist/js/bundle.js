@@ -18391,14 +18391,46 @@ var ProductCard = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ProductCard.__proto__ || Object.getPrototypeOf(ProductCard)).apply(this, arguments));
 
     _this.state = {
+      count: 1,
       saleByPackage: false
     };
 
     _this.isSaleByPackage = _this.isSaleByPackage.bind(_this);
+    _this.changeCount = _this.changeCount.bind(_this);
+    _this.incrCount = _this.incrCount.bind(_this);
+    _this.decrCount = _this.decrCount.bind(_this);
     return _this;
   }
 
   _createClass(ProductCard, [{
+    key: "changeCount",
+    value: function changeCount(e) {
+      var num = +e.target.value;
+      if (!isNaN(parseFloat(num)) && isFinite(num) && num >= 0) {
+        this.setState({
+          count: num
+        });
+      } else {
+        e.target.value = this.state.count;
+      }
+    }
+  }, {
+    key: "decrCount",
+    value: function decrCount() {
+      if (this.state.count > 1) {
+        this.setState({
+          count: this.state.count - 1
+        });
+      }
+    }
+  }, {
+    key: "incrCount",
+    value: function incrCount() {
+      this.setState({
+        count: this.state.count + 1
+      });
+    }
+  }, {
     key: "isSaleByPackage",
     value: function isSaleByPackage(bool) {
       this.setState({
@@ -18493,12 +18525,15 @@ var ProductCard = function (_React$Component) {
             _react2.default.createElement(
               "div",
               { className: "product-card__counter" },
-              _react2.default.createElement("input", { type: "text", className: "product-card__count", defaultValue: "1" }),
+              _react2.default.createElement("input", { type: "text", className: "product-card__count",
+                value: this.state.count,
+                onChange: this.changeCount
+              }),
               _react2.default.createElement(
                 "div",
                 null,
-                _react2.default.createElement("div", { className: "product-card__incr" }),
-                _react2.default.createElement("div", { className: "product-card__decr" })
+                _react2.default.createElement("div", { className: "product-card__incr", onClick: this.incrCount }),
+                _react2.default.createElement("div", { className: "product-card__decr", onClick: this.decrCount })
               )
             ),
             _react2.default.createElement(

@@ -4,10 +4,39 @@ export default class ProductCard extends React.Component {
   constructor() {
     super(...arguments);
     this.state = {
+      count: 1,
       saleByPackage: false
     };
 
     this.isSaleByPackage = this.isSaleByPackage.bind(this);
+    this.changeCount = this.changeCount.bind(this);
+    this.incrCount = this.incrCount.bind(this);
+    this.decrCount = this.decrCount.bind(this);
+  }
+
+  changeCount(e) {
+    const num = +(e.target.value);
+    if ((!isNaN(parseFloat(num)) && isFinite(num)) && num >= 0) {
+      this.setState({
+        count: num
+      })
+    } else {
+      e.target.value = this.state.count;
+    }
+  }
+
+  decrCount() {
+    if (this.state.count > 1) {
+      this.setState({
+        count: this.state.count - 1
+      });
+    }
+  }
+
+  incrCount() {
+    this.setState({
+      count: this.state.count + 1
+    });
   }
 
   isSaleByPackage(bool) {
@@ -40,7 +69,7 @@ export default class ProductCard extends React.Component {
             <div className="product-card__retail-price">
               {Math.round(((this.state.saleByPackage) ? this.props.data.priceRetail
                 : this.props.data.priceRetailAlt) * 100) / 100}
-              </div>
+            </div>
             <div className="price-switcher">
               <span className={(!this.state.saleByPackage) ? "price-switcher__item_active" : ""} onClick={() => {
                 this.isSaleByPackage(false)
@@ -52,10 +81,13 @@ export default class ProductCard extends React.Component {
           </div>
           <div className="product-card__controls">
             <div className="product-card__counter">
-              <input type="text" className="product-card__count" defaultValue="1"/>
+              <input type="text" className="product-card__count"
+                     value={this.state.count}
+                     onChange={this.changeCount}
+              />
               <div>
-                <div className="product-card__incr"/>
-                <div className="product-card__decr"/>
+                <div className="product-card__incr" onClick={this.incrCount}/>
+                <div className="product-card__decr" onClick={this.decrCount}/>
               </div>
             </div>
             <div className="product-card__buy-btn" data-product-id={this.props.data.productId}>
