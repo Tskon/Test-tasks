@@ -18388,12 +18388,28 @@ var ProductCard = function (_React$Component) {
   function ProductCard() {
     _classCallCheck(this, ProductCard);
 
-    return _possibleConstructorReturn(this, (ProductCard.__proto__ || Object.getPrototypeOf(ProductCard)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (ProductCard.__proto__ || Object.getPrototypeOf(ProductCard)).apply(this, arguments));
+
+    _this.state = {
+      saleByPackage: false
+    };
+
+    _this.isSaleByPackage = _this.isSaleByPackage.bind(_this);
+    return _this;
   }
 
   _createClass(ProductCard, [{
+    key: "isSaleByPackage",
+    value: function isSaleByPackage(bool) {
+      this.setState({
+        saleByPackage: bool
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         "div",
         { className: "product-card" },
@@ -18437,30 +18453,36 @@ var ProductCard = function (_React$Component) {
             { className: "product-card__price" },
             _react2.default.createElement(
               "div",
-              null,
+              { className: "product-card__gold-price" },
               _react2.default.createElement(
                 "span",
-                null,
-                "\u041F\u043E \u043A\u0430\u0440\u0442\u0435 \u043A\u043B\u0443\u0431\u0430:\xA0"
+                { className: "product-card__price-txt" },
+                "\u041F\u043E \u043A\u0430\u0440\u0442\u0435 ",
+                _react2.default.createElement("br", null),
+                " \u043A\u043B\u0443\u0431\u0430"
               ),
-              this.props.data.priceGold
+              Math.round((this.state.saleByPackage ? this.props.data.priceGold : this.props.data.priceGoldAlt) * 100) / 100
             ),
             _react2.default.createElement(
               "div",
-              null,
-              this.props.data.priceRetail
+              { className: "product-card__retail-price" },
+              Math.round((this.state.saleByPackage ? this.props.data.priceRetail : this.props.data.priceRetailAlt) * 100) / 100
             ),
             _react2.default.createElement(
               "div",
-              null,
+              { className: "price-switcher" },
               _react2.default.createElement(
                 "span",
-                null,
+                { className: !this.state.saleByPackage ? "price-switcher__item_active" : "", onClick: function onClick() {
+                    _this2.isSaleByPackage(false);
+                  } },
                 "\u0417\u0430 \u043C.\u043A\u0432."
               ),
               _react2.default.createElement(
                 "span",
-                null,
+                { className: this.state.saleByPackage ? "price-switcher__item_active" : "", onClick: function onClick() {
+                    _this2.isSaleByPackage(true);
+                  } },
                 "\u0417\u0430 \u0443\u043F\u0430\u043A\u043E\u0432\u043A\u0443"
               )
             )
@@ -18470,15 +18492,20 @@ var ProductCard = function (_React$Component) {
             { className: "product-card__controls" },
             _react2.default.createElement(
               "div",
-              null,
-              _react2.default.createElement("input", { type: "text" }),
-              _react2.default.createElement("div", { className: "product-card__incr" }),
-              _react2.default.createElement("div", { className: "product-card__decr" })
+              { className: "product-card__counter" },
+              _react2.default.createElement("input", { type: "text", className: "product-card__count", defaultValue: "1" }),
+              _react2.default.createElement(
+                "div",
+                null,
+                _react2.default.createElement("div", { className: "product-card__incr" }),
+                _react2.default.createElement("div", { className: "product-card__decr" })
+              )
             ),
             _react2.default.createElement(
               "div",
-              null,
-              _react2.default.createElement("input", { type: "button", value: "\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0443" })
+              { className: "product-card__buy-btn", "data-product-id": this.props.data.productId },
+              _react2.default.createElement("span", { className: "product-card__buy-btn-ico" }),
+              "\u0412 \u043A\u043E\u0440\u0437\u0438\u043D\u0443"
             )
           )
         )

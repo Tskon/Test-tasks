@@ -1,7 +1,9 @@
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif; }
   html *, html *:after, html *:before {
-    box-sizing: inherit; }
+    box-sizing: inherit;
+    outline: none; }
 
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -310,9 +312,10 @@ template {
 .product-card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 240px;
-  padding: 10px;
+  padding: 10px 10px 30px;
   margin: 10px 5px 0;
   border: 1px solid lightgrey; }
 
@@ -325,9 +328,12 @@ template {
 .product-card__title {
   font-size: 14px;
   line-height: 22px;
-  font-family: Arial,Helvetica,sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
-  color: #000; }
+  color: #000;
+  text-decoration: none; }
+  .product-card__title:hover {
+    text-decoration: underline; }
 
 .product-card__additional {
   display: none; }
@@ -336,13 +342,19 @@ template {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   min-width: 200px; }
+  .product-card__product-code-wrapper span:first-child {
+    font-size: 12px;
+    color: #666; }
+  .product-card__product-code-wrapper span:last-child {
+    font-size: 14px; }
 
 .product-card__img {
-  width: 120px;
-  height: 120px;
-  margin: 10px; }
+  width: 160px;
+  height: 160px;
+  margin: 10px auto 50px; }
 
 .product-card__product-available {
   color: #093;
@@ -354,5 +366,112 @@ template {
 .product-card__product-available_available_false {
   color: #903;
   border-color: #903; }
+
+.product-card__price {
+  text-align: right;
+  padding-top: 20px; }
+
+.product-card__gold-price {
+  height: 45px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000; }
+  .product-card__gold-price:after {
+    content: " \20BD"; }
+
+.product-card__retail-price {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #a7a7a7; }
+  .product-card__retail-price:after {
+    content: " \20BD"; }
+
+.product-card__price-txt {
+  display: inline-block;
+  width: 65px;
+  padding: 3px;
+  margin: 5px;
+  font-size: 14px;
+  font-weight: 400; }
+
+.price-switcher {
+  padding: 0 10px; }
+  .price-switcher span {
+    font-size: 13px;
+    line-height: 13px;
+    color: #707070;
+    border-bottom: 1px dotted #707070;
+    padding: 2px 4px;
+    cursor: pointer;
+    margin-left: 5px; }
+  .price-switcher .price-switcher__item_active {
+    background-color: #000;
+    color: #fff;
+    border-bottom-color: transparent; }
+
+.product-card__controls {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  margin: 10px 0; }
+
+.product-card__counter {
+  display: flex;
+  flex-wrap: nowrap;
+  border: 1px solid lightgrey;
+  width: 66px;
+  height: 40px;
+  margin-right: 6px; }
+
+.product-card__count {
+  text-align: center;
+  width: 40px;
+  height: 38px;
+  border: none;
+  padding: 0; }
+
+.product-card__incr, .product-card__decr {
+  width: 25px;
+  height: 19px;
+  margin: 0;
+  border-left: 1px solid lightgrey;
+  background-image: url(../../img/arrows.png);
+  cursor: pointer; }
+
+.product-card__incr {
+  background-position: -28px 0; }
+  .product-card__incr:hover {
+    background-color: #666;
+    background-position: -1px 0; }
+
+.product-card__decr {
+  border-top: 1px solid lightgrey;
+  background-position: -28px -20px; }
+  .product-card__decr:hover {
+    background-color: #666;
+    background-position: -1px -20px; }
+
+.product-card__buy-btn {
+  width: 150px;
+  height: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  line-height: 40px;
+  font-size: 14px;
+  border: none;
+  background-color: #fb9823;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer; }
+  .product-card__buy-btn:hover {
+    background-color: #333; }
+  .product-card__buy-btn .product-card__buy-btn-ico {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../../img/product-card-sprite.png) -125px -65px; }
 
 /*# sourceMappingURL=app.css.map*/

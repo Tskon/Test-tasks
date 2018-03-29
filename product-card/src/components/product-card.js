@@ -1,6 +1,21 @@
 import React from 'react';
 
 export default class ProductCard extends React.Component {
+  constructor() {
+    super(...arguments);
+    this.state = {
+      saleByPackage: false
+    };
+
+    this.isSaleByPackage = this.isSaleByPackage.bind(this);
+  }
+
+  isSaleByPackage(bool) {
+    this.setState({
+      saleByPackage: bool
+    })
+  }
+
   render() {
     return (
       <div className="product-card">
@@ -17,27 +32,39 @@ export default class ProductCard extends React.Component {
         </div>
         <div className="product-card__price-section">
           <div className="product-card__price">
-            <div>
-              <span>По карте клуба:&nbsp;</span>
-              {this.props.data.priceGold}
+            <div className="product-card__gold-price">
+              <span className="product-card__price-txt">По карте <br/> клуба</span>
+              {Math.round(((this.state.saleByPackage) ? this.props.data.priceGold
+                : this.props.data.priceGoldAlt) * 100) / 100}
             </div>
-            <div>{this.props.data.priceRetail}</div>
-            <div>
-              <span>За м.кв.</span>
-              <span>За упаковку</span>
+            <div className="product-card__retail-price">
+              {Math.round(((this.state.saleByPackage) ? this.props.data.priceRetail
+                : this.props.data.priceRetailAlt) * 100) / 100}
+              </div>
+            <div className="price-switcher">
+              <span className={(!this.state.saleByPackage) ? "price-switcher__item_active" : ""} onClick={() => {
+                this.isSaleByPackage(false)
+              }}>За м.кв.</span>
+              <span className={(this.state.saleByPackage) ? "price-switcher__item_active" : ""} onClick={() => {
+                this.isSaleByPackage(true)
+              }}>За упаковку</span>
             </div>
           </div>
           <div className="product-card__controls">
-            <div>
-              <input type="text"/>
-              <div className="product-card__incr"/>
-              <div className="product-card__decr"/>
+            <div className="product-card__counter">
+              <input type="text" className="product-card__count" defaultValue="1"/>
+              <div>
+                <div className="product-card__incr"/>
+                <div className="product-card__decr"/>
+              </div>
             </div>
-            <div><input type="button" value="В корзину"/></div>
+            <div className="product-card__buy-btn" data-product-id={this.props.data.productId}>
+              <span className="product-card__buy-btn-ico"/>
+              В корзину
+            </div>
           </div>
         </div>
       </div>
-
     );
   }
 }
