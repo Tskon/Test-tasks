@@ -305,6 +305,18 @@ template {
 [hidden] {
   display: none; }
 
+.get-more-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid lightgrey;
+  cursor: pointer;
+  transition: 200ms; }
+  .get-more-btn:hover {
+    color: white;
+    background-color: #999; }
+
 .card-list {
   display: flex;
   flex-flow: row wrap; }
@@ -336,7 +348,11 @@ template {
     text-decoration: underline; }
 
 .product-card__additional {
-  display: none; }
+  display: none;
+  font-size: 12px;
+  line-height: 14px;
+  color: #666;
+  width: 100%; }
 
 .product-card__product-code-wrapper {
   display: flex;
@@ -370,6 +386,9 @@ template {
 .product-card__price {
   text-align: right;
   padding-top: 20px; }
+
+.product-card__points-price {
+  display: none; }
 
 .product-card__gold-price {
   height: 45px;
@@ -415,6 +434,9 @@ template {
   justify-content: center;
   margin: 10px 0; }
 
+.product-card__counter-descr {
+  display: none; }
+
 .product-card__counter {
   display: flex;
   flex-wrap: nowrap;
@@ -435,7 +457,10 @@ template {
   height: 19px;
   margin: 0;
   border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
   background-image: url(../../img/arrows.png);
+  background-color: #fff;
+  transition: background-color 200ms;
   cursor: pointer; }
 
 .product-card__incr {
@@ -465,6 +490,7 @@ template {
   color: #fff;
   text-transform: uppercase;
   text-align: center;
+  transition: 200ms;
   cursor: pointer; }
   .product-card__buy-btn:hover {
     background-color: #333; }
@@ -473,5 +499,99 @@ template {
     width: 20px;
     height: 20px;
     background: url(../../img/product-card-sprite.png) -125px -65px; }
+
+@media all and (min-width: 720px) {
+  .card-list {
+    flex-direction: column;
+    width: auto; }
+  .product-card {
+    flex-direction: row;
+    width: auto;
+    min-width: 700px;
+    max-width: 950px; }
+  .product-card__about {
+    width: 100%;
+    flex-direction: column;
+    align-self: flex-start;
+    position: relative; }
+  .product-card__product-code-wrapper {
+    padding-left: 180px; }
+  .product-card__title {
+    align-self: flex-start;
+    padding-left: 180px;
+    margin: 25px 0;
+    width: 550px; }
+  .product-card__img {
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0; }
+  .product-card__additional {
+    display: block;
+    padding-left: 180px;
+    width: 100%; }
+  .product-card__points-price {
+    display: block;
+    font-size: 12px;
+    line-height: 17px;
+    color: #999; }
+  .product-card__retail-price {
+    margin-bottom: 0; }
+  .product-card__counter-descr {
+    display: block;
+    font-size: 13px;
+    line-height: 15px;
+    margin: 10px 0 5px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    position: relative; }
+    .product-card__counter-descr div {
+      display: inline-block; }
+      .product-card__counter-descr div:first-child {
+        width: 15px;
+        height: 15px;
+        margin: 5px 10px 5px 0;
+        background-image: url(../../img/unit--i.png);
+        background-size: 15px 15px; }
+    .product-card__counter-descr:after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      border-top: 8px solid;
+      display: block;
+      border-color: #fff;
+      left: 14px;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent; }
+    .product-card__counter-descr:before {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      border-top: 8px solid;
+      display: block;
+      width: 0;
+      height: 0;
+      margin-bottom: -1px;
+      border-color: #ccc;
+      color: #ccc;
+      left: 13px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent; } }
+
+@media (max-device-width: 600px) {
+  .product-card {
+    width: auto;
+    min-width: 240px;
+    max-width: 360px; }
+  .price-switcher {
+    margin-bottom: 30px; }
+    .price-switcher span {
+      padding: 10px; }
+  .product-card__buy-btn {
+    margin-left: 50px; } }
+  @media (max-device-width: 600px) and (max-device-width: 300px) {
+    .product-card__buy-btn {
+      margin-left: 15px; } }
 
 /*# sourceMappingURL=app.css.map*/

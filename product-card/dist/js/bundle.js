@@ -18315,7 +18315,7 @@ var ProductList = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ProductList.__proto__ || Object.getPrototypeOf(ProductList)).apply(this, arguments));
 
     _this.state = {
-      currentCardNum: 5
+      currentCardNum: 4
     };
 
     _this.loadMore = _this.loadMore.bind(_this);
@@ -18326,7 +18326,7 @@ var ProductList = function (_React$Component) {
     key: 'loadMore',
     value: function loadMore() {
       this.setState({
-        currentCardNum: this.state.currentCardNum + 5
+        currentCardNum: this.state.currentCardNum + 4
       });
     }
   }, {
@@ -18346,7 +18346,7 @@ var ProductList = function (_React$Component) {
           { className: 'card-list' },
           cards
         ),
-        _react2.default.createElement('input', { type: 'button', value: '\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u0435\u0449\u0435', onClick: this.loadMore })
+        _react2.default.createElement('input', { type: 'button', className: 'get-more-btn', value: '\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u0435\u0449\u0435', onClick: this.loadMore })
       );
     }
   }]);
@@ -18417,7 +18417,7 @@ var ProductCard = function (_React$Component) {
   }, {
     key: "decrCount",
     value: function decrCount() {
-      if (this.state.count > 1) {
+      if (this.state.count > 0) {
         this.setState({
           count: this.state.count - 1
         });
@@ -18473,7 +18473,12 @@ var ProductCard = function (_React$Component) {
           _react2.default.createElement(
             "div",
             { className: "product-card__additional" },
-            "\u041C\u043E\u0433\u0443\u0442 \u043F\u043E\u043D\u0430\u0434\u043E\u0431\u0438\u0442\u044C\u0441\u044F: ",
+            _react2.default.createElement(
+              "b",
+              null,
+              "\u041C\u043E\u0433\u0443\u0442 \u043F\u043E\u043D\u0430\u0434\u043E\u0431\u0438\u0442\u044C\u0441\u044F:"
+            ),
+            " ",
             this.props.data.assocProducts
           )
         ),
@@ -18501,6 +18506,13 @@ var ProductCard = function (_React$Component) {
               Math.round((this.state.saleByPackage ? this.props.data.priceRetail : this.props.data.priceRetailAlt) * 100) / 100
             ),
             _react2.default.createElement(
+              "p",
+              { className: "product-card__points-price" },
+              "\u041C\u043E\u0436\u043D\u043E \u043A\u0443\u043F\u0438\u0442\u044C \u0437\u0430 ",
+              Math.round((this.state.saleByPackage ? this.props.data.priceGold : this.props.data.priceGoldAlt) * 0.6 * 100) / 100,
+              " \u0431\u0430\u043B\u043B\u0430"
+            ),
+            _react2.default.createElement(
               "div",
               { className: "price-switcher" },
               _react2.default.createElement(
@@ -18517,6 +18529,20 @@ var ProductCard = function (_React$Component) {
                   } },
                 "\u0417\u0430 \u0443\u043F\u0430\u043A\u043E\u0432\u043A\u0443"
               )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "product-card__counter-descr" },
+            _react2.default.createElement("div", null),
+            _react2.default.createElement(
+              "div",
+              null,
+              "\u041F\u0440\u043E\u0434\u0430\u0435\u0442\u0441\u044F \u0443\u043F\u0430\u043A\u043E\u0432\u043A\u0430\u043C\u0438:",
+              _react2.default.createElement("br", null),
+              "1 \u0443\u043F\u0430\u043A. = ",
+              Math.round(this.props.data.priceRetail / this.props.data.priceRetailAlt * 100) / 100,
+              " \u043C. \u043A\u0432."
             )
           ),
           _react2.default.createElement(

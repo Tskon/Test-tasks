@@ -8,7 +8,7 @@ export default class ProductList extends React.Component {
     super(...arguments);
 
     this.state = {
-      currentCardNum: 5,
+      currentCardNum: 4,
     };
 
     this.loadMore = this.loadMore.bind(this);
@@ -16,7 +16,7 @@ export default class ProductList extends React.Component {
 
   loadMore() {
     this.setState({
-      currentCardNum: this.state.currentCardNum + 5
+      currentCardNum: this.state.currentCardNum + 4
     })
   }
 
@@ -32,7 +32,7 @@ export default class ProductList extends React.Component {
         <div className="card-list">
           {cards}
         </div>
-        <input type='button' value='Загрузить еще' onClick={this.loadMore}/>
+        <input type="button" className="get-more-btn" value="Загрузить еще" onClick={this.loadMore}/>
       </div>
     );
   }

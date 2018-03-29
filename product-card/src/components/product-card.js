@@ -26,7 +26,7 @@ export default class ProductCard extends React.Component {
   }
 
   decrCount() {
-    if (this.state.count > 1) {
+    if (this.state.count > 0) {
       this.setState({
         count: this.state.count - 1
       });
@@ -57,7 +57,7 @@ export default class ProductCard extends React.Component {
           <img src={this.props.data.primaryImageUrl.slice(0, -4) + "_220x220_1.jpg"} alt=""
                className="product-card__img"/>
           <a href="#" className="product-card__title">{this.props.data.title}</a>
-          <div className="product-card__additional">Могут понадобиться: {this.props.data.assocProducts}</div>
+          <div className="product-card__additional"><b>Могут понадобиться:</b> {this.props.data.assocProducts}</div>
         </div>
         <div className="product-card__price-section">
           <div className="product-card__price">
@@ -70,6 +70,10 @@ export default class ProductCard extends React.Component {
               {Math.round(((this.state.saleByPackage) ? this.props.data.priceRetail
                 : this.props.data.priceRetailAlt) * 100) / 100}
             </div>
+            <p className="product-card__points-price">
+              Можно купить за {Math.round(((this.state.saleByPackage) ? this.props.data.priceGold
+              : this.props.data.priceGoldAlt) * 0.6 * 100) / 100} балла
+            </p>
             <div className="price-switcher">
               <span className={(!this.state.saleByPackage) ? "price-switcher__item_active" : ""} onClick={() => {
                 this.isSaleByPackage(false)
@@ -77,6 +81,13 @@ export default class ProductCard extends React.Component {
               <span className={(this.state.saleByPackage) ? "price-switcher__item_active" : ""} onClick={() => {
                 this.isSaleByPackage(true)
               }}>За упаковку</span>
+            </div>
+          </div>
+          <div className="product-card__counter-descr">
+            <div/>
+            <div>
+              Продается упаковками:<br/>
+              1 упак. = {Math.round((this.props.data.priceRetail / this.props.data.priceRetailAlt) * 100) / 100} м. кв.
             </div>
           </div>
           <div className="product-card__controls">
