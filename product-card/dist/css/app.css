@@ -350,9 +350,14 @@ template {
 .product-card__additional {
   display: none;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 18px;
   color: #666;
   width: 100%; }
+  .product-card__additional a {
+    color: #666;
+    text-decoration: none; }
+    .product-card__additional a:hover {
+      text-decoration: underline; }
 
 .product-card__product-code-wrapper {
   display: flex;
@@ -440,7 +445,6 @@ template {
 .product-card__counter {
   display: flex;
   flex-wrap: nowrap;
-  border: 1px solid lightgrey;
   width: 66px;
   height: 40px;
   margin-right: 6px; }
@@ -448,22 +452,26 @@ template {
 .product-card__count {
   text-align: center;
   width: 40px;
-  height: 38px;
-  border: none;
-  padding: 0; }
+  max-width: 40px;
+  height: 40px;
+  padding: 0;
+  flex: 1 100%;
+  border: 1px solid lightgrey;
+  border-right: none; }
 
 .product-card__incr, .product-card__decr {
   width: 25px;
-  height: 19px;
+  height: 20px;
   margin: 0;
-  border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
+  border: 1px solid lightgrey;
   background-image: url(../../img/arrows.png);
   background-color: #fff;
   transition: background-color 200ms;
-  cursor: pointer; }
+  cursor: pointer;
+  flex: 1 50%; }
 
 .product-card__incr {
+  border-bottom-color: transparent;
   background-position: -28px 0; }
   .product-card__incr:hover {
     background-color: #666;

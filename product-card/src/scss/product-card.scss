@@ -55,9 +55,16 @@
 .product-card__additional {
   display: none;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 18px;
   color: #666;
   width: 100%;
+  a{
+    color: #666;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 }
 
 .product-card__product-code-wrapper {
@@ -165,7 +172,7 @@
 .product-card__counter {
   display: flex;
   flex-wrap: nowrap;
-  border: 1px solid lightgrey;
+  //border: 1px solid lightgrey;
   width: 66px;
   height: 40px;
   margin-right: 6px;
@@ -174,24 +181,28 @@
 .product-card__count {
   text-align: center;
   width: 40px;
-  height: 38px;
-  border: none;
+  max-width: 40px; //for firefox
+  height: 40px;
   padding: 0;
+  flex: 1 100%;
+  border: 1px solid lightgrey;
+  border-right: none;
 }
 
 .product-card__incr, .product-card__decr {
   width: 25px;
-  height: 19px;
+  height: 20px;
   margin: 0;
-  border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
+  border: 1px solid lightgrey;
   background-image: url("../img/arrows.png");
   background-color: #fff;
   transition: background-color 200ms;
   cursor: pointer;
+  flex: 1 50%;
 }
 
 .product-card__incr {
+  border-bottom-color: transparent;
   background-position: -28px 0;
   &:hover {
     background-color: #666;

@@ -18476,10 +18476,27 @@ var ProductCard = function (_React$Component) {
             _react2.default.createElement(
               "b",
               null,
-              "\u041C\u043E\u0433\u0443\u0442 \u043F\u043E\u043D\u0430\u0434\u043E\u0431\u0438\u0442\u044C\u0441\u044F:"
+              "\u041C\u043E\u0433\u0443\u0442 \u043F\u043E\u043D\u0430\u0434\u043E\u0431\u0438\u0442\u044C\u0441\u044F: "
             ),
-            " ",
-            this.props.data.assocProducts
+            this.props.data.assocProducts.split(';').map(function (item, i, arr) {
+              if (item) {
+                if (arr.length - 2 > i) {
+                  return _react2.default.createElement(
+                    "a",
+                    { href: "#", key: i },
+                    item,
+                    ","
+                  );
+                } else {
+                  return _react2.default.createElement(
+                    "a",
+                    { href: "#", key: i },
+                    item,
+                    "."
+                  );
+                }
+              }
+            })
           )
         ),
         _react2.default.createElement(

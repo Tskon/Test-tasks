@@ -57,7 +57,19 @@ export default class ProductCard extends React.Component {
           <img src={this.props.data.primaryImageUrl.slice(0, -4) + "_220x220_1.jpg"} alt=""
                className="product-card__img"/>
           <a href="#" className="product-card__title">{this.props.data.title}</a>
-          <div className="product-card__additional"><b>Могут понадобиться:</b> {this.props.data.assocProducts}</div>
+          <div className="product-card__additional"><b>Могут понадобиться: </b>
+            {
+              this.props.data.assocProducts.split(';').map((item, i, arr) => {
+                if (item) {
+                  if (arr.length - 2 > i) {
+                    return <a href="#" key={i}>{item},</a>
+                  }else{
+                    return <a href="#" key={i}>{item}.</a>
+                  }
+                }
+              })
+            }
+          </div>
         </div>
         <div className="product-card__price-section">
           <div className="product-card__price">
