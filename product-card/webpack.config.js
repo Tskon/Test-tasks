@@ -53,7 +53,7 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         use: [
-          { loader: 'file-loader', options: {publicPath:'../../img', name: '[name].[ext]'} }
+          { loader: 'file-loader', options: {publicPath:'../img', name: '../img/[name].[ext]'} }
         ]
       },
       // {
@@ -73,7 +73,6 @@ module.exports = {
     new CopyWebpackPlugin(
       [
         {from:'./index.html', to: '../'},
-        {from:'./img', to: '../img'},
         ],
       {ignore: [
         // {glob: 'svg/*'},
@@ -85,7 +84,7 @@ module.exports = {
 
 if (isProduction) {
   module.exports.plugins.push(
-    new UglifyJSPlugin({sourceMap: true})
+    new UglifyJSPlugin({sourceMap: false})
   );
   // module.exports.plugins.push(
   //   new ImageminPlugin({
