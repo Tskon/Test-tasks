@@ -358,7 +358,7 @@
 // for small screens (mobile): responsive cards and big buttons
 @media (max-device-width: 600px) {
   .product-card {
-    width: auto;
+    width: 100%;
     min-width: 240px;
     max-width: 360px;
   }
