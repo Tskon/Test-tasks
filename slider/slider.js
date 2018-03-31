@@ -8,7 +8,9 @@
  */
 
 function Slider(selector = 'body', slidesArr = [],
-                options = {colors:{background:'#fff', text:'#000', imgDir: './img'}, opacity: 0.8}) {
+                options = {colors: {background: '#fff', text: '#000', imgDir: './img'}, opacity: 0.8}) {
+
+  let currentSlide = 1;
 
   const render = () => {
     const wrapper = document.createElement('div');
@@ -27,6 +29,14 @@ function Slider(selector = 'body', slidesArr = [],
     selector = document.querySelector(selector);
     selector.appendChild(wrapper);
 
+    document.querySelector('.tskon-slider__right-array').addEventListener('click', () => {
+      nextSlide()
+    });
+
+    document.querySelector('.tskon-slider__left-array').addEventListener('click', () => {
+      prevSlide()
+    });
+
     wrapper.cssText = `
       background-color = ${options.colors.background};
       color = ${options.colors.text};
@@ -39,7 +49,15 @@ function Slider(selector = 'body', slidesArr = [],
     slideWrap.innerHTML = `<img src=${slidesArr[num]}/>`
   };
 
-  function isNum(num){
+  const nextSlide = () => {
+    getSlide(++currentSlide);
+  };
+
+  const prevSlide = () => {
+    getSlide(--currentSlide);
+  };
+
+  function isNum(num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
   }
 
