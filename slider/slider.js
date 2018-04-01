@@ -50,10 +50,12 @@ function Slider(selector = 'body', slidesArr = [],
   };
 
   const nextSlide = () => {
+    if (slidesArr.length === currentSlide) currentSlide = 0;
     getSlide(++currentSlide);
   };
 
   const prevSlide = () => {
+    if (currentSlide === 1) currentSlide = slidesArr.length + 1;
     getSlide(--currentSlide);
   };
 
