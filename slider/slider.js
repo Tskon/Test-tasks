@@ -18,9 +18,9 @@ function Slider(selector = 'body', slidesArr = [],
 
     const html = `
         <div class="tskon-slider__content-row">
-          <span class="tskon-slider__left-array"></span>
+          <div class="tskon-slider__left-array"><span></span></div>
           <div class="tskon-slider__content"></div>
-          <span class="tskon-slider__right-array"></span>
+          <div class="tskon-slider__right-array"><span></span></div>
         </div>
         <div class="tskon-slider__controls"></div>
     `;
