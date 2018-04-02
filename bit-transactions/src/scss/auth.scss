@@ -1,0 +1,8 @@
+.auth input{
+  display: block;
+  width: 200px;
+  margin: 0 10px 5px;
+  &[type='button']{
+    cursor: pointer;
+  }
+}

@@ -60,9 +60,6 @@ typings/
 .env
 
 
-.idea/
-/planner/dist/
-tmp/
-
-
-/bit-transactions/.idea/
+/package-lock.json
+/dist/
+/src/img/tmp/
