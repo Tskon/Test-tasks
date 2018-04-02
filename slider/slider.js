@@ -46,7 +46,24 @@ function Slider(selector = 'body', slidesArr = [],
   const getSlide = (num = 1) => {
     num = (isNum(num)) ? num - 1 : 0;
     const slideWrap = document.querySelector('.tskon-slider__content');
-    slideWrap.innerHTML = `<img src=${slidesArr[num]}/>`
+    if (typeof slidesArr[num] === 'string'){
+      slideWrap.innerHTML = `<img src=${slidesArr[num]}/>`
+    } else {
+      const obj = slidesArr[num];
+      const wrapper = document.createElement('div');
+      if(obj.title) {
+        const slideTitle = document.createElement('h2');
+        slideTitle.innerHTML = obj.title;
+        wrapper.appendChild(slideTitle);
+      }
+      if(obj.body) {
+        const slideBody = document.createElement('div');
+        slideBody.innerHTML = obj.body
+        wrapper.appendChild(slideBody);
+      }
+      slideWrap.innerHTML = ''
+      slideWrap.appendChild(wrapper);
+    }
   };
 
   const nextSlide = () => {

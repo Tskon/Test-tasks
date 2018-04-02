@@ -9,7 +9,27 @@
   <div class="slider-wrapper"></div>
   <script src="./slider.js"></script>
   <script>
-    const slider = new Slider('.slider-wrapper', ['./img/slide-1.png', './img/slide-2.png', './img/slide-3.png'])
+    const slider = new Slider('.slider-wrapper', [
+      {
+        title: 'Slide Title',
+        body:`
+          <p>
+          paragraph 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dolor earum fugiat hic
+          libero porro quam veritatis vero. Aperiam, at delectus est exercitationem ipsam quo rerum! Animi aperiam
+          autem quibusdam!
+          </p>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+          </ul>
+        `
+      },
+      './img/slide-1.png',
+      './img/slide-2.png',
+      './img/slide-3.png'
+    ]);
   </script>
 </body>
 </html>

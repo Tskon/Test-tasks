@@ -13,6 +13,9 @@
 .tskon-slider__content-row {
   display: inline-block;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -user-select: none;
 }
 
 .tskon-slider__left-array, .tskon-slider__right-array {
