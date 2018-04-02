@@ -58,10 +58,10 @@ function Slider(selector = 'body', slidesArr = [],
       }
       if(obj.body) {
         const slideBody = document.createElement('div');
-        slideBody.innerHTML = obj.body
+        slideBody.innerHTML = obj.body;
         wrapper.appendChild(slideBody);
       }
-      slideWrap.innerHTML = ''
+      slideWrap.innerHTML = '';
       slideWrap.appendChild(wrapper);
     }
   };
