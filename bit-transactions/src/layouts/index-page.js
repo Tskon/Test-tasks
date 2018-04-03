@@ -3,7 +3,8 @@ import {Switch, Route} from 'react-router-dom';
 
 import Menu from '../components/menu/menu';
 import Auth from '../components/pages/auth';
-import Contacts from '../components/pages/new-transaction';
+import NewTransaction from '../components/pages/new-transaction';
+import AllTransactions from '../components/pages/all-transactions';
 
 
 export default class Blog extends React.Component {
@@ -17,7 +18,8 @@ export default class Blog extends React.Component {
         <Menu/>
         <Switch>
           <Route exact path='/' component={Auth}/>
-          <Route path='/contacts' component={Contacts}/>
+          <Route path='/add' component={NewTransaction}/>
+          <Route path='/view-all' component={AllTransactions}/>
         </Switch>
       </div>
     )
