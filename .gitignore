@@ -63,6 +63,4 @@ typings/
 .idea/
 /planner/dist/
 tmp/
-
-
-/bit-transactions/.idea/
+package-lock.json
