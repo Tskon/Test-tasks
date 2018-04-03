@@ -1,5 +1,3 @@
-import transaction from "../components/pages/transaction";
-
 export function transactionReducer(state = {transactions: [], isFetching: false}, action) {
   switch (action.type) {
     case 'FETCH_TRANSACTIONS_PENDING': {

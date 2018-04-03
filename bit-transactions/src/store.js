@@ -10,12 +10,10 @@ const middlewares = applyMiddleware(logger, promise());
 //reducers
 import {transactionReducer} from './reducers/transaction-reducer';
 import {bankReducer} from './reducers/bank-reducer';
-import {authReducer} from "./reducers/auth-reducer";
 
 const reducers = combineReducers({
   transactions: transactionReducer,
-  banks: bankReducer,
-  auth: authReducer
+  banks: bankReducer
 });
 
 const store = createStore(reducers, middlewares);
